@@ -1,4 +1,4 @@
-window.alert('Iniciar a calculadora IMC?') //janela com botão ok
+
 const firstDiv = document.querySelector('.first-step');
       const secondDiv = document.querySelector('.second-step');
       const finalDiv = document.querySelector('.final-step');
@@ -9,29 +9,29 @@ const firstDiv = document.querySelector('.first-step');
         let dNone,dBlock;
         if(currentStep == 1)
         {
-         dNone = firstDiv
+         dNone = firstDiv;
         }
         else if(currentStep == 2)
         {
-          dNone = secondDiv
+          dNone = secondDiv;
         }
         else
         {
-         dNone = finalDiv
+         dNone = finalDiv;
     
         }
-         dNone.style.display='none';
+        dNone.style.display='none';
         if(nextStep == 1)
         {
-          dBlock = firstDiv
+          dBlock = firstDiv;
         }
         else if(nextStep == 2)
         {
-          dBlock = secondDiv
+          dBlock = secondDiv;
         }
         else
         {
-         dBlock = finalDiv
+         dBlock = finalDiv;
     
         }
          dBlock.style.display='block';
@@ -39,38 +39,37 @@ const firstDiv = document.querySelector('.first-step');
       
 function validate() //Validação
 {
-        const peso  =document.getElementById('peso');
-        const altura =document.getElementById('altura');
+        const peso = document.getElementById('peso');
+        const altura = document.getElementById('altura');
         peso.style.border = 'none';
         altura.style.border = 'none';
         if(!peso.value || !altura.value)
-        {   {
-               peso.style.border = '1px solid red';
-               altura.style.border = '1px solid red';
-            }
+        {  
             if(!peso.value && !altura.value)
-
             {
-              console.log('Não temos nem o peso,nem a altura');
+              peso.style.border = '1px solid red';
+              altura.style.border = '1px solid red';
             }
             else if(!peso.value)
             {
+              console.log('Não temos o peso');
               peso.style.border = '1px solid red';
             }
             else
             {
+              console.log('Não temos a altura');
               altura.style.border = '1px solid red';
             }
 
         }
         else
         {
-          const imc =peso.value/(altura.value * altura.value);
-          const result =document.getElementById('resultado');
+          let imc =peso.value / (altura.value * altura.value);
+          const result = document.getElementById('resultado');
           if(imc < 18.5)
           {
             console.log('Magreza | Obesidade: 0');
-            result.style.color='white';
+            result.style.color='yellow';
             result.innerHTML = 'Magreza | Obesidade: 0';           
           }
           else if(imc >= 18.5 && imc < 25)
@@ -83,19 +82,19 @@ function validate() //Validação
           {
             console.log('Sobrepeso | Obesidade: I');
             result.style.color='yellow';
-            result.innerHTML = 'Obesidade | Obesidade: I';
+            result.innerHTML = 'Sobrepeso | Obesidade: I';
           }
           else if (imc >= 30 && imc < 40)
           {
             console.log('Obesidade | Obesidade: II');
             result.style.color='red';
-            result.innerHTML = 'Obesidade grave | Obesidade: III';
+            result.innerHTML = 'Obesidade | Obesidade: II';
           }
           else 
           {
             console.log('Obesidade grave | Obesidade: III');
             result.style.color='black';
-            result.innerHTML = 'Obesidade | Obesidade: III';
+            result.innerHTML = 'Obesidade grave | Obesidade: III';
           }
           
           
